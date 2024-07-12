@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Dot</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="dot"></div>
+
+    <script>
+        function centerDot() {
+            const dot = document.querySelector('.dot');
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const dotWidth = dot.offsetWidth;
+            const dotHeight = dot.offsetHeight;
+
+            const left = (windowWidth - dotWidth) / 2;
+            const top = (windowHeight - dotHeight) / 2;
+
+            dot.style.left = `${left}px`;
+            dot.style.top = `${top}px`;
+        }
+
+        window.addEventListener('load', centerDot);
+        window.addEventListener('resize', centerDot);
+    </script>
+</body>
+</html>
+
